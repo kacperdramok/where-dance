@@ -6,28 +6,26 @@ import java.time.OffsetDateTime
 import javax.persistence.*
 
 @Data
-@Getter
-@Entity
 @SuperBuilder
 @NoArgsConstructor
- abstract class User(  ) {
+//@Table(name = "users")
+open abstract class User() {
 
 
-     @Id
-     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     protected var id:Long = 0
-     protected var name:String=""
-     protected var login:String=""
-     protected var password:String=""
-     protected var email:String=""
-     protected var phoneNumber:String=""
-     protected var role:String=""
-     protected lateinit var createdAt:OffsetDateTime
-     protected lateinit var updatedAt: OffsetDateTime
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    open var id: Long = 0
+    open var name: String? = null
+    open var login: String? = null
+    open var password: String? = null
+    open var email: String? = null
+    open var phoneNumber: String? = null
+    open var role: String? = null
+    open var createdAt: OffsetDateTime? = null
+    open var updatedAt: OffsetDateTime? = null
 
-     @Embedded
-     protected lateinit var address:Address
+    @Embedded
+    open var address: Address? = null
 
 
-
- }
+}

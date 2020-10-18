@@ -3,14 +3,16 @@ package com.example.demo.model
 import lombok.*
 import javax.persistence.Embeddable
 
+@Data
 @Embeddable
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-data class Address( var country: String,
-        var postalCode: String,
-        var city: String,
-        var street: String,
-        var number: String) {
+class Address() {
+    var country: String?=null
+    var postalCode: String?=null
+    var city: String?=null
+    var street: String?=null
+    var number: String?=null
 
 }
