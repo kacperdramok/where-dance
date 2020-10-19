@@ -3,9 +3,7 @@ package com.example.demo.model
 import lombok.*
 import lombok.experimental.SuperBuilder
 import java.util.*
-import javax.persistence.CascadeType
-import javax.persistence.Entity
-import javax.persistence.OneToMany
+import javax.persistence.*
 
 
 @Getter
@@ -15,6 +13,10 @@ import javax.persistence.OneToMany
 @AllArgsConstructor
 @SuperBuilder
 class Organizer: User() {
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//     var id: Long = 0
+
 
     @OneToMany(mappedBy = "organizer", cascade = arrayOf(CascadeType.ALL))
     @Builder.Default

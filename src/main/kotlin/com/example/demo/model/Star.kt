@@ -14,6 +14,7 @@ import javax.persistence.*
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "star")
 class Star {
 
     @Id

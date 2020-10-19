@@ -5,10 +5,11 @@ import lombok.experimental.SuperBuilder
 import java.time.OffsetDateTime
 import javax.persistence.*
 
+@Entity
 @Data
 @SuperBuilder
 @NoArgsConstructor
-//@Table(name = "users")
+@Table(name = "users")
 open abstract class User() {
 
 

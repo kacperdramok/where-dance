@@ -25,10 +25,21 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("org.springframework.boot:spring-boot-starter-security")
+//	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+	implementation("org.thymeleaf.extras:thymeleaf-extras-java8time:2.1.0.RELEASE")
+
+
+	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+
+	implementation("io.springfox:springfox-swagger2:2.7.0")
+	implementation("io.springfox:springfox-swagger-ui:2.7.0")
+
+implementation("javax.validation:validation-api:2.0.1.Final")
+
+
 	compileOnly("org.projectlombok:lombok")
 	runtimeOnly("org.postgresql:postgresql")
 	annotationProcessor("org.projectlombok:lombok")

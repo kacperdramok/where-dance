@@ -4,7 +4,7 @@ import lombok.*
 import lombok.experimental.SuperBuilder
 import java.util.*
 import javax.persistence.*
-
+import javax.persistence.Entity;
 
 
 @Entity
@@ -12,6 +12,9 @@ import javax.persistence.*
 @AllArgsConstructor
 @SuperBuilder
 class Participant: User() {
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//     var id: Long = 0
 
     private var surname: String = ""
     private var gender: String = ""

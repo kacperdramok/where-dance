@@ -12,6 +12,7 @@ import javax.persistence.*
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "event")
 class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
