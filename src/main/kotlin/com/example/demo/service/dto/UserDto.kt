@@ -12,15 +12,15 @@ import javax.persistence.Embedded
 @NoArgsConstructor
 abstract class UserDto {
 
-    protected var id: Long? = null
-    protected var name: String? = null
-    protected var login: String? = null
-    protected var email: String? = null
-    protected var phoneNumber: String? = null
-    protected var createdAt: OffsetDateTime? = null
-    protected var updatedAt: OffsetDateTime? = null
+    var id: Long? = null
+    var name: String? = null
+    var login: String? = null
+    var email: String? = null
+    var phoneNumber: String? = null
+    var createdAt: OffsetDateTime? = null
+    var updatedAt: OffsetDateTime? = null
 
     @Embedded
-    protected var addressDto: AddressDto? = null
+    var addressDto: AddressDto? = null
 
 }

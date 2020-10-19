@@ -3,6 +3,7 @@ package com.example.demo.controller
 import com.example.demo.exception.*
 import com.example.demo.service.EventService
 import com.example.demo.service.dto.CreateUpdateEventDto
+import com.example.demo.service.dto.EventDto
 import org.springframework.web.bind.annotation.*
 
 
@@ -14,13 +15,13 @@ class EventController(
 
 
     @GetMapping
-    fun getAllEvents(): List<EventService> {
+    fun getAllEvents(): List<EventDto> {
         return eventService.getAllEvents()
     }
 
     @GetMapping("/{id}")
     @Throws(NotFound::class)
-    fun getEventById(@PathVariable id: Long): EventService {
+    fun getEventById(@PathVariable id: Long): EventDto {
         return eventService.getEventById(id)
     }
 

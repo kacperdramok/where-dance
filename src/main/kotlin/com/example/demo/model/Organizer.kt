@@ -12,15 +12,11 @@ import javax.persistence.*
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-class Organizer: User() {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//     var id: Long = 0
-
+class Organizer(): User() {
 
     @OneToMany(mappedBy = "organizer", cascade = arrayOf(CascadeType.ALL))
     @Builder.Default
-    private var events: List<Event> = ArrayList()
+    var events: List<Event> = ArrayList()
 
 
 }

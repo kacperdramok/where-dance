@@ -12,5 +12,5 @@ import java.util.*
 class OrganizerDto: UserDto() {
 
     @Builder.Default
-    private val events: List<EventDto> = ArrayList()
+    var events: List<EventDto> = ArrayList()
 }

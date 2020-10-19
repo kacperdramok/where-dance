@@ -7,43 +7,108 @@ import javax.persistence.*
 
 
 
-@Data
 @Entity
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "event")
-class Event {
+class Event private constructor(builder: EventBuilder) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private var id: Long = 0
+    var id: Long = 0
 
-    private var name: String = ""
-    private var startDate: String = ""
-    private var endDate: String = ""
-    private var description: String = ""
-    private var comments: String = ""
-    private lateinit var createdAt: OffsetDateTime
-    private lateinit var updatedAt: OffsetDateTime
-
-    @Embedded
-    private lateinit var address: Address
+    var name: String?
+    var startDate: String?
+    var endDate: String?
+    var description: String?
+    var comments: String?
+    var createdAt: OffsetDateTime?
+    var updatedAt: OffsetDateTime?
 
     @Embedded
-    private lateinit var numberOfSeats: NumberOfSeats
+    var address: Address?
+
+    @Embedded
+    var numberOfSeats: NumberOfSeats?
 
     @ManyToMany
-    @Builder.Default
-    private var danceTypes: List<DanceType> = ArrayList()
+    var danceTypes: List<DanceType> = ArrayList()
 
     @ManyToMany
-    @Builder.Default
-    private var stars: List<Star> = ArrayList<Star>()
+    var stars: List<Star> = ArrayList<Star>()
 
     @ManyToMany
-    @Builder.Default
-    private var participants: List<Participant> = ArrayList()
+    var participants: List<Participant> = ArrayList()
 
     @ManyToOne(cascade = arrayOf(CascadeType.PERSIST))
-    private lateinit var organizer: Organizer
+    var organizer: Organizer?
+
+
+    init {
+        this.id = builder.id
+        this.name = builder.name
+        this.startDate = builder.startDate
+        this.endDate = builder.endDate
+        this.description = builder.description
+        this.comments = builder.comments
+        this.createdAt = builder.createdAt
+        this.updatedAt = builder.updatedAt
+        this.address = builder.address
+        this.numberOfSeats = builder.numberOfSeats
+        this.danceTypes = builder.danceTypes
+        this.stars = builder.stars
+        this.participants = builder.participants
+        this.organizer = builder.organizer
+
+
+    }
+
+    class EventBuilder {
+        var id: Long = 0
+            private set
+        var name: String? = null
+            private set
+        var startDate: String? = null
+            private set
+        var endDate: String? = null
+            private set
+        var description: String? = null
+            private set
+        var comments: String? = null
+            private set
+        var createdAt: OffsetDateTime? = null
+            private set
+        var updatedAt: OffsetDateTime? = null
+            private set
+        var address: Address? = null
+            private set
+        var numberOfSeats: NumberOfSeats? = null
+            private set
+        var danceTypes: List<DanceType> = ArrayList()
+            private set
+        var stars: List<Star> = ArrayList<Star>()
+            private set
+        var participants: List<Participant> = ArrayList()
+            private set
+        var organizer: Organizer? = null
+            private set
+
+
+        fun id(id: Long) = apply { this.id = id }
+        fun name(name: String) = apply { this.name = name }
+        fun startDate(startDate: String) = apply { this.startDate = startDate }
+        fun endDate(endDate: String) = apply { this.endDate = endDate }
+        fun description(description: String) = apply { this.description = description }
+        fun comments(comments: String) = apply { this.comments = comments }
+        fun createdAt(createdAt: OffsetDateTime) = apply { this.createdAt = createdAt }
+        fun updatedAt(updatedAt: OffsetDateTime) = apply { this.updatedAt = updatedAt }
+        fun address(address: Address) = apply { this.address = address }
+        fun numberOfSeats(numberOfSeats: NumberOfSeats) = apply { this.numberOfSeats = numberOfSeats }
+        fun danceTypes(danceTypes: List<DanceType>) = apply { this.danceTypes = danceTypes }
+        fun stars(stars: List<Star>) = apply { this.stars = stars }
+        fun participants(participants: List<Participant>) = apply { this.participants = participants }
+        fun organizer(organizer: Organizer) = apply { this.organizer = organizer }
+        fun build() = Event(this)
+
+
+    }
+
+
 }

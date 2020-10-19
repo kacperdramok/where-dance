@@ -50,12 +50,14 @@ class DanceTypeService(
     @Transactional
     fun createDanceType(createUpdateDanceTypeDto: CreateUpdateDanceTypeDto): DanceTypeDto {
 
-        var danceType: DanceType = DanceType().apply {
-            name = createUpdateDanceTypeDto.name
-            description = createUpdateDanceTypeDto.description
-            comments = createUpdateDanceTypeDto.comments
-            createdAt = OffsetDateTime.now()
-        }
+        var danceType: DanceType = DanceType.DanceTypeBuilder()
+                .name(createUpdateDanceTypeDto.name)
+                .description(createUpdateDanceTypeDto.description)
+                .comments(createUpdateDanceTypeDto.comments)
+                .createdAt(OffsetDateTime.now())
+                .build()
+
+
         var savedDanceType: DanceType = repository.save(danceType)
         return mapper.toDto(savedDanceType)
     }

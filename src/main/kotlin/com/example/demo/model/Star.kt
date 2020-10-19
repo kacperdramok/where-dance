@@ -20,17 +20,17 @@ class Star {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private val id: Long = 0
+   var id: Long = 0
 
-    private var name: String = ""
-    private var country: String = ""
-     private var description: String = ""
-   private var comments: String = ""
-    private lateinit var createdAt: OffsetDateTime
-    private lateinit var updatedAt: OffsetDateTime
+   var name: String = ""
+   var country: String = ""
+   var description: String = ""
+   var comments: String = ""
+   lateinit var createdAt: OffsetDateTime
+   lateinit var updatedAt: OffsetDateTime
 
     @ManyToMany(mappedBy = "stars", cascade = [CascadeType.ALL])
     @Builder.Default
-    private var events: List<Event> = ArrayList()
+   var events: List<Event> = ArrayList()
 
 }

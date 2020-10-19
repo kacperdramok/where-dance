@@ -10,8 +10,8 @@ import javax.persistence.Embeddable
 @AllArgsConstructor
 class NumberOfSeats {
 
-    private var allSeats: Int = 0
-    private var freeSeats: Int = 0
-    private var unconfirmedSeats: Int = 0
-    private var confirmedSeats: Int = 0
+    var allSeats: Int = 0
+    var freeSeats: Int = 0
+    var unconfirmedSeats: Int = 0
+    var confirmedSeats: Int = 0
 }
